@@ -13,16 +13,17 @@ install:
   - # skip
 
 script:
-  - gox -ox="linux darwin windows" -arch="amd64" -output="megaCli.." -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...
+  - gox -os="linux darwin windows" -arch="amd64" -verbose ./...
+
 
 deploy:
   provider: releases
   api_key:
     secure: Z6RtotcR3CxwD+t9+hjGlyNgUBaYOpMYSiInPbOLC8ysT2UubIaUylJBVlQYdZl9F4J/tlCmPqa3SFsT6zptdYLas+LXV1hCj9dcElu86WZuXrSN1B6qxqIBuX+pqtSGil6gGRB/mV+AqOo5p+RTH7+NqD1dGpMh7c8wYmB1kXFUmCeJa0b2gEf9FZN/iRJbRMi3oUzWrDQH1baug/irW0fbfUxyQcJvuKSKRhpG6/3YEHPIbqVuSkfbIZ+qzqzG/stTygdAyx52ta83fOtTTVrJ6oqdIJwfWoPY5k5pwkGBUYYNIYFyeYcuSVZ9+1HKNVqC6EwDgjJ1wM1wxmPTkZtbtCkdsenk7JTnWjnTnt8K96rNhBBGTiTuXUOyX0cTUVy5EoB1gQ53vYU6ETC04FPrBF8A4VRCVm4AKeYSxG3+/8MyKGarIN3VeabOErX8/V0wj4vKX2moxRG86+BHkOpd01sWXMYzsETe81HCl9UQOLOO5aUQx5qa7R6dovi8bAlhuHxcCAq+QMwmGMaA3bqFs7TBZKAOp1COJC+jB+z7NKmh3Gll6nH50QVPfUr4FEkYQuTvljEjw1BFV415hOx2NyZkmREpOuu1x5hzHp6ojJ1FmHnjg7qFT4iSzZ6VfBm9lSd39nnRWN3dkKRmWv1M4oZi1kUhFpRZwvqoy3w=
   file:
-    - megaCli.windows.amd64.exe
-    - megaCli.darwin.amd64.exe
-    - megaCli.linux.amd64
+    - megaCli_darwin_amd64
+    - megaCli_linux_amd64
+    - megaCli_windows_amd64.exe
   on:
     repo: ciiiii/megaCli
     tags: true
